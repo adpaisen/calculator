@@ -58,14 +58,16 @@ function calculate(){
     }
 }
 
-function selectPlan(plan,price){
-    document.getElementById("premiumModal").style.display="none";
+function selectPlan(plan,price,qr){
+document.getElementById("premiumModal").style.display="none";
 
-    document.getElementById("paymentModal").style.display="flex";
+document.getElementById("paymentModal").style.display="flex";
 
-    document.getElementById("selectedPlan").textContent=`${plan} Plan - ₱${price}`;
+document.getElementById("selectedPlan").textContent=`${plan} Plan - ₱${price}`;
 
-    startPaymentTimer();
+document.querySelector(".qr").src=qr;
+
+startPaymentTimer();
 }
 
 function startPaymentTimer(){
