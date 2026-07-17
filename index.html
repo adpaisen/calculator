@@ -1,1 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="light">
 
+<div class="calculator">
+    <div class="top-bar">
+        <span class="mode-label">Light Mode</span>
+
+        <label class="switch">
+            <input type="checkbox" id="modeToggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <input type="text" id="display" disabled>
+
+    <div class="buttons">
+        <button class="clear" onclick="clearDisplay()">AC</button>
+        <button class="clear" onclick="backspace()">⌫</button>
+        <button class="operator" onclick="appendValue('%')">%</button>
+        <button class="operator" onclick="appendValue('/')">/</button>
+
+        <button onclick="appendValue('7')">7</button>
+        <button onclick="appendValue('8')">8</button>
+        <button onclick="appendValue('9')">9</button>
+        <button class="operator" onclick="appendValue('*')">*</button>
+
+        <button onclick="appendValue('4')">4</button>
+        <button onclick="appendValue('5')">5</button>
+        <button onclick="appendValue('6')">6</button>
+        <button class="operator" onclick="appendValue('-')">-</button>
+
+        <button onclick="appendValue('1')">1</button>
+        <button onclick="appendValue('2')">2</button>
+        <button onclick="appendValue('3')">3</button>
+        <button class="operator" onclick="appendValue('+')">+</button>
+
+        <button disabled></button>
+        <button onclick="appendValue('0')">0</button>
+        <button onclick="appendValue('.')">.</button>
+        <button class="equal" onclick="calculate()">=</button>
+    </div>
+</div>
+
+<div class="modal" id="premiumModal">
+    <div class="modal-box">
+        <h2>🔒 Calculator Premium</h2>
+
+        <p>Unlock advanced calculator features.</p>
+
+        <h3>Choose your plan</h3>
+
+        <div class="plans">
+            <button onclick="selectPlan('Basic',49)">
+                Basic<br>₱49
+            </button>
+
+            <button onclick="selectPlan('Pro',99)">
+                Pro<br>₱99
+            </button>
+
+            <button onclick="selectPlan('VIP',299)">
+                VIP<br>₱299
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="paymentModal">
+    <div class="modal-box">
+        <h2>💳 Payment</h2>
+
+        <p id="selectedPlan"></p>
+
+        <img src="images/gcash-qr.png" class="qr">
+
+        <p>Scan using GCash</p>
+
+        <button id="paidButton" onclick="finishPayment()" disabled>
+            Scan QR First (20)
+        </button>
+    </div>
+</div>
+
+<div class="modal" id="verifyModal">
+    <div class="modal-box">
+        <h2>⏳ Verifying Payment</h2>
+
+        <p>Connecting to GCash...</p>
+
+        <div class="loader"></div>
+    </div>
+</div>
+
+<div class="modal" id="prankModal">
+    <div class="modal-box">
+        <h1>😂 GOTCHA!</h1>
+
+        <p>
+            No payment was needed.
+            <br><br>
+            Your calculator was already free!
+        </p>
+
+        <button onclick="closePrank()">
+            Continue
+        </button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
